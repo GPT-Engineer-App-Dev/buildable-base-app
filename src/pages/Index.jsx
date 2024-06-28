@@ -6,10 +6,16 @@ import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
+import { toast } from "sonner";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 const Index = () => {
   const [date, setDate] = useState(null);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    toast("Form submitted successfully!");
+  };
 
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-gray-100">
@@ -18,7 +24,7 @@ const Index = () => {
           <CardTitle className="text-center text-2xl">Welcome to Your App</CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <Label htmlFor="name">Name</Label>
               <Input id="name" placeholder="Enter your name" />
