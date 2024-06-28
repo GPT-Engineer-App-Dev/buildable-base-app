@@ -4,7 +4,13 @@ import Index from "./pages/Index.jsx";
 import HackerNews from "./pages/HackerNews.jsx";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner.jsx";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 function App() {
   return (
